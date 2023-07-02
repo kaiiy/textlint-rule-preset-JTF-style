@@ -42,6 +42,7 @@
     "glob": "^8.0.3",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
+    "textlint": "^13.3.3",
     "textlint-scripts": "^12.2.1",
     "textlint-tester": "^12.2.1"
   },
@@ -69,5 +70,8 @@
     "*.{js,jsx,ts,tsx,css}": [
       "prettier --write"
     ]
+  },
+  "volta": {
+    "node": "16.20.1"
   }
 }
