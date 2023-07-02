@@ -10,8 +10,10 @@ import { matchCaptureGroupAll } from "match-index";
 import regx from "regx";
 import { japaneseRegExp } from "./util/regexp";
 const rx = regx("g");
+import type { TextlintRuleContext } from "@textlint/types";
+import type { TxtNode } from "@textlint/ast-node-types";
 
-const replaceSymbol = (symbol) => {
+const replaceSymbol = (symbol: string) => {
     var newSymbol = {
         "(": "（",
         ")": "）"
@@ -21,10 +23,10 @@ const replaceSymbol = (symbol) => {
     }
     return newSymbol;
 };
-function reporter(context) {
+function reporter(context: TextlintRuleContext) {
     let { Syntax, RuleError, report, fixer, getSource } = context;
     return {
-        [Syntax.Str](node) {
+        [Syntax.Str](node: TxtNode) {
             if (!isUserWrittenNode(node, context)) {
                 return;
             }
